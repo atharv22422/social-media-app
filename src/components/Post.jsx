@@ -1,16 +1,21 @@
-function Post() {
+import styles from "./Post.module.css";
+
+function Post({ PostValue }) {
   return (
     <>
-      <div className="card" style={{ width: "18rem" }}>
-        <div className="card-body">
-          <h5 className="card-title">Card title</h5>
-          <p className="card-text">
-            Some quick example text to build on the card title and make up the
-            bulk of the card’s content.
+      <div className={`${styles.card} card`} style={{ width: "18rem" }}>
+        <div className={`card-body `}>
+          <h5 className={`card-title ${styles.cardTitle}`}>
+            {PostValue.Title}
+          </h5>
+          <p className="card-text">{PostValue.Description}</p>
+          <p className={`card-text ${styles.cardhastag}`}>
+            {PostValue.hastags}
           </p>
-          <a href="#" className="btn btn-primary">
-            Go somewhere
-          </a>
+          <button type="button" className="btn btn-warning">
+            {" "}
+            <p className="card-text">Reactions : {PostValue.reactions}</p>
+          </button>
         </div>
       </div>
     </>

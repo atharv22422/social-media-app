@@ -1,0 +1,23 @@
+.card {
+
+  margin: 10px;
+    background-color: bisque;
+}
+
+.cardBody{
+
+  background-color: bisque;
+}
+
+.cardTitle {
+
+  background-color:darkgoldenrod;
+  padding: 10px;
+  font-weight: 500;
+  font-weight: bolder;
+}
+
+.cardhastag {
+  background-color: rgb(217, 182, 127);
+  padding: 10px;
+}

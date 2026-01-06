@@ -1,9 +1,33 @@
+import { useRef } from "react";
 import styles from "./CreatPost.module.css";
 
-function CreatePost() {
+function CreatePost({ handleOnSubmitForm }) {
+  const TitleText = useRef();
+  const DescriptionText = useRef();
+  const ReactionsText = useRef();
+  const hastagsText = useRef();
+  const userIdText = useRef();
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+    handleOnSubmitForm(
+      TitleText.current.value,
+      DescriptionText.current.value,
+      ReactionsText.current.value,
+      hastagsText.current.value,
+      userIdText.current.value
+    );
+
+    TitleText.current.value = "";
+    DescriptionText.current.value = "";
+    ReactionsText.current.value = "";
+    hastagsText.current.value = "";
+    userIdText.current.value = "";
+  };
+
   return (
     <>
-      <form className={styles.form}>
+      <form className={styles.form} onSubmit={submitHandler}>
         <div className="mb-3">
           <label htmlFor="exampleInputEmail1" className="form-label">
             user-ID:
@@ -13,6 +37,7 @@ function CreatePost() {
             className="form-control"
             id="exampleInputEmail1"
             aria-describedby="emailHelp"
+            ref={userIdText}
           />
           <div id="emailHelp" className="form-text"></div>
         </div>
@@ -21,10 +46,11 @@ function CreatePost() {
             Title:
           </label>
           <input
-            type="email"
+            type="text"
             className="form-control"
             id="exampleInputEmail1"
             aria-describedby="emailHelp"
+            ref={TitleText}
           />
           <div id="emailHelp" className="form-text"></div>
         </div>
@@ -37,17 +63,19 @@ function CreatePost() {
             className="form-control"
             id="exampleInputEmail1"
             aria-describedby="emailHelp"
+            ref={DescriptionText}
           />
           <div id="emailHelp" className="form-text"></div>
         </div>
         <div className="mb-3">
           <label htmlFor="exampleInputPassword1" className="form-label">
-            #hASTAGSS:
+            #HASTAGSS:
           </label>
           <input
-            type="password"
+            type="text"
             className="form-control"
             id="exampleInputPassword1"
+            ref={hastagsText}
           />
         </div>
         <div className="mb-3">
@@ -55,16 +83,20 @@ function CreatePost() {
             reactions:
           </label>
           <input
-            type="password"
+            type="text"
             className="form-control"
             id="exampleInputPassword1"
+            ref={ReactionsText}
           />
         </div>
 
-        <button type="submit" className="btn btn-primary">
+        <button type="submit" className="btn btn-warning">
           Submit
         </button>
       </form>
+      <div className={styles.lastLine}>
+        <p>Create a post and have fun in your life</p>
+      </div>
     </>
   );
 }
