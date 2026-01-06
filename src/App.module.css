@@ -1,0 +1,11 @@
+.outercontainer {
+
+  display: flex;
+ 
+  height: 1000px;
+}
+
+.innercontainer {
+
+  width: 100%;
+}
