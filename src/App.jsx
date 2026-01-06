@@ -5,6 +5,7 @@ import FooterComp from "./components/FooterComp";
 import HeaderComp from "./components/HeaderCom";
 import PostList from "./components/PostList";
 import SideBarComp from "./components/SideBarComp";
+import PostListItemProvider from "./store/PostListItem";
 
 function App() {
   const [SelectedTab, setSelectedTab] = useState("Posts");
