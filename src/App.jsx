@@ -10,95 +10,22 @@ import PostListItemProvider from "./store/PostListItem";
 function App() {
   const [SelectedTab, setSelectedTab] = useState("Posts");
 
-  const InitialPost = [
-    {
-      userId: "user234",
-      Title: "Learning react",
-      Description:
-        "i am enjoying learning it having fun i have learned basic and i am movig forward towards the advanced part",
-      hastags: "#vibing #nightcoding #pushingonestepforward",
-      reactions: "2435",
-    },
-    {
-      userId: "user234",
-      Title: "Learning react",
-      Description:
-        "i am enjoying learning it having fun i have learned basic and i am movig forward towards the advanced part",
-      hastags: "#vibing #nightcoding #pushingonestepforward",
-      reactions: "2435",
-    },
-    {
-      userId: "user234",
-      Title: "Learning react",
-      Description:
-        "i am enjoying learning it having fun i have learned basic and i am movig forward towards the advanced part",
-      hastags: "#vibing #nightcoding #pushingonestepforward",
-      reactions: "2435",
-    },
-    {
-      userId: "user234",
-      Title: "Learning react",
-      Description:
-        "i am enjoying learning it having fun i have learned basic and i am movig forward towards the advanced part",
-      hastags: "#vibing #nightcoding #pushingonestepforward",
-      reactions: "2435",
-    },
-    {
-      userId: "user234",
-      Title: "Learning react",
-      Description:
-        "i am enjoying learning it having fun i have learned basic and i am movig forward towards the advanced part",
-      hastags: "#vibing #nightcoding #pushingonestepforward",
-      reactions: "2435",
-    },
-    {
-      userId: "user234",
-      Title: "Learning react",
-      Description:
-        "i am enjoying learning it having fun i have learned basic and i am movig forward towards the advanced part",
-      hastags: "#vibing #nightcoding #pushingonestepforward",
-      reactions: "2435",
-    },
-  ];
-  const [PostItems, setPostItems] = useState(InitialPost);
-
-  const handleOnSubmitForm = (
-    TitleText,
-    DescriptionText,
-    ReactionsText,
-    hastagsText,
-    userIdText
-  ) => {
-    const NewItem = {
-      userId: userIdText,
-      Title: TitleText,
-      Description: DescriptionText,
-      hastags: hastagsText,
-      reactions: ReactionsText,
-    };
-    setPostItems((prevItem) => {
-      return [NewItem, ...prevItem];
-    });
-  };
-
   return (
     <>
-      <div className={styles.outercontainer}>
-        <SideBarComp
-          SelectedTab={SelectedTab}
-          setSelectedTab={setSelectedTab}
-        />
-        <div className={styles.innercontainer}>
-          <HeaderComp />
+      <PostListItemProvider>
+        <div className={styles.outercontainer}>
+          <SideBarComp
+            SelectedTab={SelectedTab}
+            setSelectedTab={setSelectedTab}
+          />
+          <div className={styles.innercontainer}>
+            <HeaderComp />
 
-          {SelectedTab === "Posts" ? (
-            <PostList PostItems={PostItems} />
-          ) : (
-            <CreatePost handleOnSubmitForm={handleOnSubmitForm} />
-          )}
-          <FooterComp />
+            {SelectedTab === "Posts" ? <PostList /> : <CreatePost />}
+            <FooterComp />
+          </div>
         </div>
-      </div>
+      </PostListItemProvider>
     </>
   );
 }

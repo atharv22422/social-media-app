@@ -1,22 +1,25 @@
-import { useRef } from "react";
+import { useRef, useContext } from "react";
 import styles from "./CreatPost.module.css";
+import { PostListItem } from "../store/PostListItem";
 
-function CreatePost({ handleOnSubmitForm }) {
+function CreatePost() {
   const TitleText = useRef();
   const DescriptionText = useRef();
   const ReactionsText = useRef();
   const hastagsText = useRef();
   const userIdText = useRef();
 
+  const { AddItem } = useContext(PostListItem);
+
   const submitHandler = (e) => {
     e.preventDefault();
-    handleOnSubmitForm(
-      TitleText.current.value,
-      DescriptionText.current.value,
-      ReactionsText.current.value,
-      hastagsText.current.value,
-      userIdText.current.value
-    );
+    AddItem({
+      TitleText: TitleText.current.value,
+      DescriptionText: DescriptionText.current.value,
+      ReactionsText: ReactionsText.current.value,
+      hastagsText: hastagsText.current.value,
+      userIdText: userIdText.current.value,
+    });
 
     TitleText.current.value = "";
     DescriptionText.current.value = "";

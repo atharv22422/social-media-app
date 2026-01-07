@@ -1,6 +1,9 @@
+import { useContext } from "react";
+import { PostListItem } from "../store/PostListItem";
 import styles from "./Post.module.css";
 
 function Post({ PostValue }) {
+  const { DeleteItem } = useContext(PostListItem);
   return (
     <>
       <div className={`${styles.card} card`} style={{ width: "18rem" }}>
@@ -13,8 +16,14 @@ function Post({ PostValue }) {
             {PostValue.hastags}
           </p>
           <button type="button" className="btn btn-warning">
-            {" "}
             <p className="card-text">Reactions : {PostValue.reactions}</p>
+          </button>
+          <button
+            type="button"
+            className="btn btn-danger"
+            onClick={() => DeleteItem(PostValue)}
+          >
+            <p className="card-text">delete post</p>
           </button>
         </div>
       </div>

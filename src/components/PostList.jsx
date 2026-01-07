@@ -1,12 +1,14 @@
 import styles from "./PostList.module.css";
-
+import { PostListItem } from "../store/PostListItem";
 import Post from "./Post";
+import { useContext } from "react";
 
-function PostList({ PostItems }) {
+function PostList() {
+  const { PostItem } = useContext(PostListItem);
   return (
     <>
       <div className={styles.listContainer}>
-        {PostItems.map((item, index) => (
+        {PostItem.map((item, index) => (
           <Post key={index} PostValue={item} />
         ))}
       </div>
