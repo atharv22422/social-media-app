@@ -1,5 +1,5 @@
 import styles from "./PostList.module.css";
-import { PostListItem } from "../store/PostListItem";
+import { PostListItem } from "../store/PostListItemContext";
 import Post from "./Post";
 import { useContext } from "react";
 
@@ -8,9 +8,13 @@ function PostList() {
   return (
     <>
       <div className={styles.listContainer}>
-        {PostItem.map((item, index) => (
-          <Post key={index} PostValue={item} />
-        ))}
+        {PostItem.length === 0 ? (
+          <div className={styles.noResultWrapper}>
+            <p className={styles.result}>No results found 🔍</p>
+          </div>
+        ) : (
+          PostItem.map((item, index) => <Post key={index} PostValue={item} />)
+        )}
       </div>
     </>
   );

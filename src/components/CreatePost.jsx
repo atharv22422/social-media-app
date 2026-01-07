@@ -1,6 +1,6 @@
 import { useRef, useContext } from "react";
 import styles from "./CreatPost.module.css";
-import { PostListItem } from "../store/PostListItem";
+import { PostListItem } from "../store/PostListItemContext";
 
 function CreatePost() {
   const TitleText = useRef();

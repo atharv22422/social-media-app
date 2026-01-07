@@ -3,7 +3,25 @@
 display: flex;
 flex-wrap: wrap; 
 justify-content: space-between;
+
 margin: 40px;
 
 
 }
+.result {
+
+  font-weight: 600;
+  text-align: center;
+  font-weight: bold;
+  font-size:larger;
+ 
+}
+.noResultWrapper {
+  width: 100%;          
+  display: flex;       
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;     
+}
+
+

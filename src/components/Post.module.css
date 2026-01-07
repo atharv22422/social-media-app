@@ -2,11 +2,15 @@
 
   margin: 10px;
     background-color: bisque;
+        width: 330px;
+            height: 320px;
+    
 }
 
 .cardBody{
 
   background-color: bisque;
+ 
 }
 
 .cardTitle {
@@ -20,4 +24,17 @@
 .cardhastag {
   background-color: rgb(217, 182, 127);
   padding: 10px;
+}
+
+.buttons {
+
+  display: flex;
+  justify-content: space-between;
+  
+}
+
+.description {
+
+text-align: justify;
+
 }

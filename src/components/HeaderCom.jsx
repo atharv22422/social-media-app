@@ -1,4 +1,15 @@
+import { useContext } from "react";
+import { PostListItem } from "../store/PostListItemContext";
+
 function HeaderComp() {
+  const { FindOnKeyEnter } = useContext(PostListItem);
+
+  const handleOnKeyDown = (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      FindOnKeyEnter(e.target.value);
+    }
+  };
   return (
     <>
       <header className="p-3 text-bg-dark">
@@ -54,6 +65,7 @@ function HeaderComp() {
                 className="form-control form-control-dark text-bg-dark"
                 placeholder="Search..."
                 aria-label="Search"
+                onKeyDown={handleOnKeyDown}
               />
             </form>
             <div className="text-end">
